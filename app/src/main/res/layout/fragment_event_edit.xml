@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ru.bfu.malenkov.eventreminder.ui.eventedit.EventEditVM"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/eventEdit_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_close_24"
+            app:navigationIconTint="@color/white"
+            app:titleTextColor="@color/white"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/eventEdit_guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/textPaddingMedium"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/eventEdit_guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/textPaddingMedium"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/eventEdit_dateLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            app:layout_constraintStart_toStartOf="@id/eventEdit_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventEdit_toolbar">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/eventEdit_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/textPaddingMedium"
+                android:hint="Дата"
+                android:text="@{viewModel.dateStringObs.toString()}"
+                android:padding="@dimen/textPaddingMedium"
+                android:textSize="@dimen/textSizeMedium"
+                app:drawableStartCompat="@drawable/ic_calendar_today_24" />
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eventEdit_titleLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="@id/eventEdit_guideEnd"
+            app:layout_constraintStart_toStartOf="@id/eventEdit_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventEdit_dateLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eventEdit_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.titleObs}"
+                android:hint="Название события"
+                android:textSize="@dimen/textSizeMedium"
+                tools:text="Event test"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eventEdit_descLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            app:layout_constraintEnd_toEndOf="@id/eventEdit_guideEnd"
+            app:layout_constraintStart_toStartOf="@id/eventEdit_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventEdit_titleLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eventEdit_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:hint="Описание"
+                android:text="@={viewModel.descObs}"
+                android:minLines="3"
+                android:textSize="@dimen/textSizeMedium"
+                tools:text="Event test"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eventEdit_saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            android:text="@string/save"
+            android:onClick="@{() -> viewModel.saveData()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eventEdit_descLayout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

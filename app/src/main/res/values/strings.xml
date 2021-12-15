@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Event Reminder</string>
+
+    <string name="settingsLabel">Settings</string>
+    <string name="aboutLabel">About</string>
+
+    <string name="shareFriends">Share friends</string>
+    <string name="shareDescription">Great app!!!</string>
+
+    <string name="bottomMenu_events">Events</string>
+    <string name="bottomMenu_holidays">Holidays</string>
+    <string name="bottomMenu_profile">Profile</string>
+
+    <string name="save">Save</string>
+    <string name="remove">Delete</string>
+    <string name="edit">Edit</string>
+</resources>

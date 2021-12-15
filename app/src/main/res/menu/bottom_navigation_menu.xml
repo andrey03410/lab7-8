@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomMenuEvents"
+        android:enabled="true"
+        android:icon="@drawable/ic_event_note_24"
+        android:title="@string/bottomMenu_events"/>
+
+    <item
+        android:id="@+id/bottomMenuHoliday"
+        android:enabled="true"
+        android:icon="@drawable/ic_holiday_list_24"
+        android:title="@string/bottomMenu_holidays"/>
+
+    <item
+        android:id="@+id/bottomMenuProfile"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile_24"
+        android:title="@string/bottomMenu_profile"/>
+</menu>

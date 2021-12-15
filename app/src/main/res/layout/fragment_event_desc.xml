@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="ru.bfu.malenkov.eventreminder.ui.eventdesc.EventDescriptionVM"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/eventDesc_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/event_desc_menu"
+            app:navigationIcon="@drawable/ic_close_24"
+            app:navigationIconTint="@color/white"
+            app:titleTextColor="@color/white"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/eventDesc_guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/textPaddingMedium"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/eventDesc_guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/textPaddingMedium"/>
+
+        <TextView
+            android:id="@+id/eventDesc_title"
+            android:text="@{viewmodel.eventReminder.title}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintEnd_toEndOf="@id/eventDesc_guideEnd"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/eventDesc_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventDesc_toolbar" />
+        <TextView
+            android:id="@+id/eventDesc_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintEnd_toEndOf="@id/eventDesc_guideEnd"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/eventDesc_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventDesc_title"
+            android:text="@{viewmodel.eventReminder.desc}" />
+        <TextView
+            android:id="@+id/eventDesc_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textPaddingMedium"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintEnd_toEndOf="@id/eventDesc_guideEnd"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/eventDesc_guideStart"
+            app:layout_constraintTop_toBottomOf="@+id/eventDesc_description"
+            android:text="@{viewmodel.eventReminder.dateStart.toString()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

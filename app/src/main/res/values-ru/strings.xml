@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Memory Birthday</string>
+
+    <string name="settingsLabel">Настройки</string>
+    <string name="aboutLabel">О приложении</string>
+    <string name="shareFriends">Рассказать друзьям</string>
+
+    <string name="bottomMenu_events">События</string>
+    <string name="bottomMenu_holidays">Праздники</string>
+    <string name="bottomMenu_profile">Профиль</string>
+
+    <string name="save">Сохранить</string>
+    <string name="remove">Удалить</string>
+    <string name="edit">Редактировать</string>
+</resources>
